@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<canvas id="canvas" width="1024" height="600" style="border:1px solid #eee;display:block; margin:0px auto;">
+    	当前浏览器不支持canvas，请更换浏览器然后再试试！
+    </canvas>
+</body>
+</html>
+<script>
+window.onload = function(){
+	var canvas = document.getElementById("canvas");
+	//判断浏览器是否支持canvas
+	if(canvas.getContext("2d")){
+		var context = canvas.getContext("2d");
+	}else{
+		alert("当前浏览器不支持canvas，请更换浏览器然后再试试！");
+	}
+	//绘制一条直线
+	context.moveTo(100,100);
+	context.lineTo(500,500);
+	context.lineTo(100,500);
+	context.lineTo(100,100);
+	
+	//填充颜色
+	context.fillStyle ="red";
+	context.fill();
+	//线条颜色
+	context.lineWidth = 5;
+	context.strokeStyle = "#005588";
+	
+	context.stroke();
+	
+	
+};
+</script>
