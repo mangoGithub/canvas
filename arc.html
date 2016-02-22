@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>arc</title>
+</head>
+<style>
+#canvas{display:block; margin:0px auto; border:1px solid #eee;}
+</style>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+</html>
+<script>
+/*
+	context.arc(
+		centerx,centery,radius,----圆心，半径
+		startingAngle,endingAngle,------弧线的起始和结束位置
+		anticlockwise = false -----顺时针false，逆时针true
+	);
+	beginPath()和closePath()不一定成对出现
+	closePath()对fill没有用
+*/
+window.onload = function(){
+	var canvas = document.getElementById("canvas");
+	canvas.width=1024;
+	canvas.height=875;
+	if( canvas.getContext("2d")){
+		var context = canvas.getContext("2d");
+	}else{
+		alert("当前浏览器不支持canvas，请更换浏览器然后再试试！");
+	}
+	
+	context.lineWidth = 5;
+	context.strokeStyle = "#005588";
+	//一个圆
+	//context.arc(300,300,200,0,1.5*Math.PI,true);
+	//多个圆
+	for(var i=0; i<10; i++){
+		context.beginPath();
+		context.arc(50+i*100,60,40,0,2*Math.PI*(i+1)/10);
+		context.closePath();
+		
+		context.stroke();
+	
+	}
+	//多个弧
+	for(var i=0; i<10; i++){
+		context.beginPath();
+		context.arc(50+i*100,180,40,0,2*Math.PI*(i+1)/10);
+		//context.closePath();
+		
+		context.stroke();
+	}
+	//多个圆 逆时针
+	for(var i=0; i<10; i++){
+		context.beginPath();
+		context.arc(50+i*100,300,40,0,2*Math.PI*(i+1)/10,true);
+		context.closePath();
+		
+		context.stroke();
+	
+	}
+	//多个弧
+	for(var i=0; i<10; i++){
+		context.beginPath();
+		context.arc(50+i*100,420,40,0,2*Math.PI*(i+1)/10,true);
+		//context.closePath();
+		
+		context.stroke();
+	}
+	//context.stroke();	
+	//填充颜色
+	context.fillStyle='#005588';
+	//多个圆 逆时针
+	for(var i=0; i<10; i++){
+		context.beginPath();
+		context.arc(50+i*100,540,40,0,2*Math.PI*(i+1)/10);
+		context.closePath();
+		
+		context.fill();
+	
+	}
+	//多个弧
+	for(var i=0; i<10; i++){
+		context.beginPath();
+		context.arc(50+i*100,660,40,0,2*Math.PI*(i+1)/10);
+		//context.closePath();
+		
+		context.fill();
+	}
+}
+
+</script>
