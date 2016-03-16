@@ -1,4 +1,4 @@
-var WINDOW_WIDTH = 1024;
+var WINOW_WIDTH = 1024;
 var WINDOW_HEIGHT = 768;
 var RADIUS = 8;
 var MARGIN_TOP = 60;
@@ -25,7 +25,6 @@ window.onload = function(){
 	
 	canvas.width=WINDOW_WIDTH;
 	canvas.height=WINDOW_HEIGHT;
-	
 	if( canvas.getContext("2d")){
 		var context = canvas.getContext("2d");
 	}else{
@@ -37,7 +36,7 @@ window.onload = function(){
 		render(context);//负责绘制小球
 		update();//负责数据的改变
 	},50);
-	
+
 }
 function getCurTime(){
 	var cur = new Date();
@@ -46,7 +45,6 @@ function getCurTime(){
 	
 	return ret >=0 ? ret : 0;
 }
-
 function update(){
 	//1，时间的变化 2，产生小球的运动
 	var nextShowTimeSeconds = getCurTime();
@@ -134,7 +132,7 @@ function addBalls(x,y,num){
 function render(cxt){
 	cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
 	//刷新
-	
+
 	var hours =parseInt(curTime/3600);
 	var minutes = parseInt((curTime-hours*3600)/60);
 	var seconds = curTime%60;
