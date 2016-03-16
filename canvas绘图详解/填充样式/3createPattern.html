@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="canvas">当前浏览器不支持canvas，请更换浏览器然后再试试！</canvas>
+</body>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById('canvas');
+
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+
+        if( canvas.getContext('2d')){
+            var cxt = canvas.getContext('2d');
+        }else{
+            alert('当前浏览器不支持canvas，请更换浏览器然后再试试！');
+        }
+        /*
+         *线性渐变
+         *使用图片背景填充
+         * 1，var grd = cxt.createPattern(img,repeate-style);
+         * 2,grd.addColorStop(stop,color);
+         * */
+
+        var backgroundImages = new Image();
+        backgroundImages.src = "brick-s.jpg";
+        backgroundImages.onload = function(){
+            var pattern = cxt.createPattern(backgroundImages,"no-repeat");
+            cxt.fillStyle = pattern;
+            cxt.fillRect(0,0,800,800);
+        }
+
+
+
+
+    }
+</script>
+</html>

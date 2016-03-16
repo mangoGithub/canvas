@@ -1,0 +1,9 @@
+diff a/index.html b/index.html	(rejected hunks)
+@@ -2,7 +2,6 @@
+ <html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+-<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
+ <title>canvas çº¿</title>
+ </head>
+ 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="canvas" width="1024" height="600" style="border:1px solid #eee;display:block; margin:0px auto;">
+    当前浏览器不支持canvas，请更换浏览器然后再试试！
+</canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        //判断浏览器是否支持canvas
+        if(canvas.getContext("2d")){
+            var context = canvas.getContext("2d");
+        }else{
+            alert("当前浏览器不支持canvas，请更换浏览器然后再试试！");
+        }
+        //绘制一条渐变色的图形
+        context.save();
+        context.translate(x,y);
+        context.rotate(rot/180*Math.PI);
+
+        draw(context)
+
+    };
+</script>
+<script src="canvas绘图详解/js/drawStar.js"></script>
+</body>
+</html>

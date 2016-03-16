@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<canvas id="canvas" width="1024" height="600" style="border:1px solid #eee;display:block; margin:0px auto;">
+    当前浏览器不支持canvas，请更换浏览器然后再试试！
+</canvas>
+</html>
+
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        //判断浏览器是否支持canvas
+        if(canvas.getContext("2d")){
+            var context = canvas.getContext("2d");
+        }else{
+            alert("当前浏览器不支持canvas，请更换浏览器然后再试试！");
+        }
+        /*
+         * closePath() 封闭并结束
+         * */
+        context.lineWidth = 10;
+        //绘制封闭图形
+
+        context.beginPath();
+        context.moveTo(100,550);
+        context.lineTo(500,550);
+        context.lineTo(500,400);
+        context.lineTo(700,600);
+        context.lineTo(500,800);
+        context.lineTo(500,650);
+        context.lineTo(100,650);
+        //context.lineTo(100,550);
+        //context.closePath();
+
+        //context.fillStyle = "green";
+        //context.fill();
+
+        context.lineCap = "round";
+
+        context.strokeStyle="#f38211";
+        context.stroke();
+
+        /*
+         * 注意：1，beginPath() —— 颜色的区分
+         *       closePath() —— 封闭、结束线条，不需要给出最后的点，位置必须在线条画完后，没绘制前
+         *       2，先填充fill后描边不会把变覆盖一半
+         * */
+
+
+    };
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rect</title>
+</head>
+<body>
+
+</body>
+<canvas id="canvas" width="1024" height="600" style="border:1px solid #eee;display:block; margin:0px auto;">
+    当前浏览器不支持canvas，请更换浏览器然后再试试！
+</canvas>
+</html>
+<script src="js/drawRect.js"></script>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        //判断浏览器是否支持canvas
+        if(canvas.getContext("2d")){
+            var context = canvas.getContext("2d");
+        }else{
+            alert("当前浏览器不支持canvas，请更换浏览器然后再试试！");
+        }
+        //绘制矩形
+        context.beginPath();
+        context.rect(100,100,200,200);
+        context.lineWidth = 10;
+        context.strokeStyle = 'blue';
+        context.closePath();
+        context.stroke();
+
+        drawRect(context,200,200,200,200,10,'#058','red');
+        drawRect2(context,300,300,200,200,10,'#058','rgba(0,256,0,0.5)');
+
+    };
+</script>

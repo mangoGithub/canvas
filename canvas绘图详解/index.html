@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Draw one line</title>
+</head>
+
+<body>
+	<canvas id="canvas" style="border:1px solid #aaa; display:block; margin:50px auto;">
+        当前浏览器不支持canvas，请更换浏览器然后再试试！
+    </canvas>
+</body>
+</html>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+
+        canvas.width = 800;
+        canvas.height = 800;
+
+        var context = canvas.getContext("2d");
+
+        context.moveTo(100,100);
+        context.lineTo(700,100);
+        context.lineTo(100,700);
+        context.lineTo(100,100);
+        context.stroke();
+        /*
+        * context.lineWidth 宽度
+        * context.strokeStyle 颜色
+        * context.moveTo(100,100);起点
+        * context.lineTo(700,700);终点
+        * */
+    }
+</script>

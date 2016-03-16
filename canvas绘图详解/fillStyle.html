@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<canvas id="canvas" width="1024" height="600" style="border:1px solid #eee;display:block; margin:0px auto;">
+    当前浏览器不支持canvas，请更换浏览器然后再试试！
+</canvas>
+</html>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        //判断浏览器是否支持canvas
+        if(canvas.getContext("2d")){
+            var context = canvas.getContext("2d");
+        }else{
+            alert("当前浏览器不支持canvas，请更换浏览器然后再试试！");
+        }
+        //绘制一条渐变色的图形
+
+        var linearGrad = context.createLinearGradient(0,0,800,800);
+
+        linearGrad.addColorStop(0.0,"#fff");
+        linearGrad.addColorStop(1.0,"#000");
+        context.fillStyle = linearGrad;
+        context.fillRect(0,0,800,800)
+
+
+
+
+
+    };
+</script>

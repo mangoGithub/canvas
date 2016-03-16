@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rect</title>
+</head>
+<body>
+
+</body>
+<canvas id="canvas" width="1024" height="600" style="border:1px solid #eee;display:block; margin:0px auto;">
+    当前浏览器不支持canvas，请更换浏览器然后再试试！
+</canvas>
+</html>
+<script src="js/drawRect.js"></script>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        //判断浏览器是否支持canvas
+        if(canvas.getContext("2d")){
+            var context = canvas.getContext("2d");
+        }else{
+            alert("当前浏览器不支持canvas，请更换浏览器然后再试试！");
+        }
+        //绘制五角星
+        context.beginPath();
+        for(var i = 0; i<5; i++) {
+            context.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * 300 + 400,
+                    -Math.sin((18 + i * 72) / 180 * Math.PI) * 300 + 400);
+            context.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * 150 + 400,
+                    -Math.sin((54 + i * 72) / 180 * Math.PI) * 150 + 400);
+        }
+        context.closePath();
+        context.lineWidth = 10;
+        context.stroke();
+    };
+</script>

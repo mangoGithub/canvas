@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <canvas id="canvas">当前浏览器不支持canvas，请更换浏览器然后再试试！</canvas>
+</body>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+
+            canvas.width = document.documentElement.clientWidth;
+            canvas.height = document.documentElement.clientHeight;
+
+            if( canvas.getContext('2d')){
+                var cxt = canvas.getContext('2d');
+            }else{
+                alert('当前浏览器不支持canvas，请更换浏览器然后再试试！');
+            }
+            /*
+            *线性渐变
+            *fillStyle
+            * 1，var grd = cxt.createLinear Gradient(xstart,ystart,xend,yend);
+            * 2,grd.addColorStop(stop,color);
+            * */
+
+            var linearGrad = cxt.createLinearGradient(0,0,800,0);
+            linearGrad.addColorStop(0.0,"#fff");
+            linearGrad.addColorStop(0.5,"#f38211");
+            linearGrad.addColorStop(1.0,"#000");
+            cxt.fillStyle = linearGrad;
+            cxt.fillRect(0,0,800,800);
+
+            /*
+            * 注意点：
+            * 1，addColorStop可以添加无数个
+            * 2,cxt.createLinearGradient(0,0,0,800);上下渐变
+            * 3,addcolorstop是从0.0到1.0
+            * 4,
+            * */
+
+        }
+    </script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<canvas id="canvas" width="1024" height="600" style="border:1px solid #eee;display:block; margin:0px auto;">
+    当前浏览器不支持canvas，请更换浏览器然后再试试！
+</canvas>
+</html>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        //判断浏览器是否支持canvas
+        if(canvas.getContext("2d")){
+            var context = canvas.getContext("2d");
+        }else{
+            alert("当前浏览器不支持canvas，请更换浏览器然后再试试！");
+        }
+
+        ///
+        context.fillStyle="red";
+        context.strokeStyle = "#058";
+        context.lineWidth = 5;
+
+        context.save();
+        context.transform(1,0,0,1,0,0);
+        context.fillRect(50,50,300,300);
+        context.strokeRect(50,50,300,300);
+        context.restore();
+
+        /*
+        * save()
+        * restore();
+        * transform();
+        * setTransform();
+        * rotate();
+        * */
+
+    };
+</script>

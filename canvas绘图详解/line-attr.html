@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rect</title>
+</head>
+<body>
+
+</body>
+<canvas id="canvas" width="1024" height="600" style="border:1px solid #eee;display:block; margin:0px auto;">
+    当前浏览器不支持canvas，请更换浏览器然后再试试！
+</canvas>
+</html>
+<script src="js/drawRect.js"></script>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        //判断浏览器是否支持canvas
+        if(canvas.getContext("2d")){
+            var context = canvas.getContext("2d");
+        }else{
+            alert("当前浏览器不支持canvas，请更换浏览器然后再试试！");
+        }
+        /*
+        * 线条的属性 context.lineCap() : butt ,round , square
+        * butt 默认
+        * round 加入的是开始和结尾，不加入到链接处 ,圆头
+        * square 方形的头 ，闭合图形，可以使用去掉缺角（除了closePath()方法外的解决方法）
+        * */
+
+    };
+</script>

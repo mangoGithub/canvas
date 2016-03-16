@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="canvas">当前浏览器不支持canvas，请更换浏览器然后再试试！</canvas>
+</body>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById('canvas');
+
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+
+        if( canvas.getContext('2d')){
+            var cxt = canvas.getContext('2d');
+        }else{
+            alert('当前浏览器不支持canvas，请更换浏览器然后再试试！');
+        }
+
+        /*
+        * 绘制曲线
+        * 1，cxt.arc(centerx,centery,radius,startingAngle,endingAngle,anticlockwise = false);
+        * */
+
+
+    }
+    function drawRoundRect(cxt,x,y,width,height,radius){
+        cxt.save();
+        cxt.translate(x,y);
+        pathRoundRect(cxt,width,height,radius);
+        cxt.strokeStyle = 'blank';
+        cxt.stroke();
+        cxt.restore()
+    }
+    function pathRoundRect(cxt,width,height,radius){
+
+    }
+</script>
+</html>
